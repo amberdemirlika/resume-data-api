@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 ruby "3.3.1"
 
+
+gem 'seed_dump'
+gem "jwt"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5"
 
@@ -34,8 +38,6 @@ gem "jbuilder"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
-
-gem "jwt"
 
 gem "csv"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

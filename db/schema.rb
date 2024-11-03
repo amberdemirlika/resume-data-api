@@ -10,6 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.1].define(version: 2024_11_03_180154) do
+  create_table "experiences", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "start_date"
+    t.string "end_date"
+    t.string "job_title"
+    t.string "company_name"
+    t.string "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "skill_name"
 
 ActiveRecord::Schema[7.1].define(version: 2024_11_03_175937) do
   create_table "educations", force: :cascade do |t|
