@@ -1,9 +1,8 @@
 class Student < ApplicationRecord
-  # belongs_to :user, foreign_key: :user_email, primary_key: :email
-  # has_many :experiences, dependent: :destroy
-  # has_one :capstone, dependent: :destroy
-  # has_many :skills, dependent: :destroy
-  # has_many :educations, dependent: :destroy
+  # has_many :experiences
+  # has_one :capstone
+  # has_many :skills
+  # has_many :educations
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true
@@ -15,6 +14,18 @@ class Student < ApplicationRecord
   # validates :website_url, format: { with: URI::regexp }, allow_blank: true
   # validates :resume_url, format: { with: URI::regexp }, allow_blank: true
   # validates :github_url, format: { with: URI::regexp }, allow_blank: true
+  after_create :create_user_account
+
+  private
+
+  def create_user_account
+    
+    User.create!(
+      email: user_email,
+      name: "#{first_name} #{last_name}",
+      password: "password",
+    )
+  end
 
   after_create :create_user_account
 

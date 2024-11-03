@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :update, :destroy]
+  before_action :authenticate_user, only: [:current]
 
   def index
     @students = Student.all
@@ -8,6 +9,15 @@ class StudentsController < ApplicationController
 
   def show
     render :show
+  end
+
+  def current
+    @student = Student.find_by(user_email: current_user.email)
+    if @student
+      render :show
+    else
+      render json: { error: "No student profile found" }, status: :not_found
+    end
   end
 
   def create
@@ -33,9 +43,7 @@ class StudentsController < ApplicationController
     render json: {message: "Student Destroyed"}
   end
 
-  def set_student
-    @student = Student.find(params[:id])
-  end
+ 
 
   def student_params
     params.permit(
@@ -52,5 +60,11 @@ class StudentsController < ApplicationController
       :github_url,
       :profile_image
     )
+  end
+
+ private 
+ 
+  def set_student
+    @student = Student.find(params[:id])
   end
 end
