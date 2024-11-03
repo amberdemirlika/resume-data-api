@@ -1,4 +1,4 @@
-json.id current_user.capstone.id
+json.user_id current_user.id
 json.student_id capstone.student_id
 json.name capstone.name
 json.description capstone.description

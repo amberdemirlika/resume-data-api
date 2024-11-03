@@ -2,7 +2,7 @@ class CapstonesController < ApplicationController
 
     def index
       @capstones = Capstone.where(user_id: current_user.id)
-  
+      p current_user
       render :index
   
     end
