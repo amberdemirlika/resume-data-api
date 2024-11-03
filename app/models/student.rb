@@ -1,9 +1,8 @@
 class Student < ApplicationRecord
-  # belongs_to :user, foreign_key: :user_email, primary_key: :email
-  # has_many :experiences, dependent: :destroy
-  # has_one :capstone, dependent: :destroy
-  # has_many :skills, dependent: :destroy
-  # has_many :educations, dependent: :destroy
+  # has_many :experiences
+  # has_one :capstone
+  # has_many :skills
+  # has_many :educations
 
   # validates :first_name, presence: true
   # validates :last_name, presence: true

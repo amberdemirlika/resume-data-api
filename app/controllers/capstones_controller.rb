@@ -9,9 +9,7 @@ class CapstonesController < ApplicationController
   
     def show
       @capstone = Capstone.find_by(id: params[:id])
-  
       render :show
-  
     end
   
   
