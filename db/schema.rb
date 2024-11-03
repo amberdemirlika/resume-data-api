@@ -49,6 +49,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_03_174400) do
     t.string "resume_url"
     t.string "github_url"
     t.string "profile_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
 ActiveRecord::Schema[7.1].define(version: 2024_11_03_174229) do
   create_table "users", force: :cascade do |t|
