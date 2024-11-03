@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_03_191738) do
     t.string "profile_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_email"], name: "index_students_on_user_email"
   end
 
   create_table "users", force: :cascade do |t|
