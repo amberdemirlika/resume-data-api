@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/experiences" => "experiences#index"
   get "/skills" => "skills#index"
+  post "/experiences" => "experiences#create"
+  post "/skills" => "skills#create"
 
   # Defines the root path route ("/")
   # root "posts#index"
