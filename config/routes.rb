@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   patch "/students/:id" => "students#update"
   delete "/students/:id" => "students#destroy"
 
+
+  get "up" => "rails/health#show", as: :rails_health_check
+
+  post "/users" => "users#create"
+  post "/sessions" => "sessions#create"
+
 end
