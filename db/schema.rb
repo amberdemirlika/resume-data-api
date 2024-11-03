@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_03_180154) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_03_191738) do
+  create_table "capstones", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "name"
+    t.string "description"
+    t.string "capstone_url"
+    t.string "capstone_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.integer "student_id"
+    t.string "start_date"
+    t.string "end_date"
+    t.string "degree"
+    t.string "university"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.integer "student_id"
     t.string "start_date"
@@ -25,17 +46,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_03_180154) do
   create_table "skills", force: :cascade do |t|
     t.integer "student_id"
     t.string "skill_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_03_175937) do
-  create_table "educations", force: :cascade do |t|
-    t.integer "student_id"
-    t.string "start_date"
-    t.string "end_date"
-    t.string "degree"
-    t.string "university"
-    t.text "details"
-
-ActiveRecord::Schema[7.1].define(version: 2024_11_03_174400) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -51,15 +65,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_03_174400) do
     t.string "profile_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_email"], name: "index_students_on_user_email"
   end
 
-
-ActiveRecord::Schema[7.1].define(version: 2024_11_03_174229) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

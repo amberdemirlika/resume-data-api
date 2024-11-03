@@ -16,7 +16,7 @@ Experience.create!([
 
 file = Rails.root.join("db", "education-data.csv")
 
-# Check if the file exists before proceeding
+
 unless File.exist?(file)
   puts "File not found: #{file}"
   exit
@@ -40,16 +40,6 @@ CSV.foreach(file, headers: false) do |row|
   )
 end
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 Student.create!(
   first_name: "Test",
   last_name: "Student",
@@ -66,4 +56,35 @@ Student.create!(
 )
 
 puts "✅ Done seeding!"
+
+
+file = Rails.root.join("db", "capstone-data.csv")
+
+
+unless File.exist?(file)
+  puts "File not found: #{file}"
+  exit
+end
+
+CSV.foreach(file, headers: false) do |row|
+  student_id = row[0]
+  name = row[1]
+  description = row[2]
+  capstone_url = row[3]
+  capstone_image = row[4]
+
+
+  Capstone.create!(
+    student_id: student_id,
+    name: name,
+    description: description,
+    capstone_url: capstone_url,
+    capstone_image: capstone_image,
+  )
+end
+
+
+
+
+
 
