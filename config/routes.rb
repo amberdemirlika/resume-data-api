@@ -2,6 +2,17 @@ Rails.application.routes.draw do
  
   get "up" => "rails/health#show", as: :rails_health_check
 
+  get "/experiences" => "experiences#index"
+  get "/skills" => "skills#index"
+  post "/experiences" => "experiences#create"
+  post "/skills" => "skills#create"
+  get "/experiences/:id" => "experiences#show"
+  get "/skills/:id" => "skills#show"
+  patch "/experiences/:id" => "experiences#update"
+  patch "/skills/:id" => "skills#update"
+  delete "/experiences/:id" => "experiences#destroy"
+  delete "/skills/:id" => "skills#destroy"
+
   get "/educations" => "educations#index"
   get "/educations/:id" => "educations#show"
   post "/educations" => "educations#create"
