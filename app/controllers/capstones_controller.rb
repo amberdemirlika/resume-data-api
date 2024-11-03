@@ -1,14 +1,15 @@
 class CapstonesController < ApplicationController
 
     def index
-      @capstones = Capstone.all
+      @capstones = Capstone.where(user_id: current_user.id)
   
       render :index
   
     end
   
     def show
-      @capstone = Capstone.find_by(id: params[:id])
+      @capstone = Capstone.find_by(id: params[current_user.id])
+      # if @capstone.user_id == current_user.id
   
       render :show
   
